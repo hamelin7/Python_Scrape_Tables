@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
+from IPython.display import display
 
 # Initialize an empty list to store table data
 all_table_data = []
@@ -36,10 +37,12 @@ for state in range(1, 58):
     all_table_data.append(table_data)
 
 # Convert all table data into a DataFrame
+#pd.set_option("display.max_rows", None, "display.max_columns", None)
 dfs = [pd.DataFrame(table_data) for table_data in all_table_data]
 
 # Print or manipulate the DataFrames as needed
 for state, df in enumerate(dfs, start=1):
     print(f"State {state}:")
-    print(df)
+    #print(df)
+    display(df)
     print()
