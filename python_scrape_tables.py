@@ -20,6 +20,7 @@ for year in range(17, 21):
   for s in range(1, 58):
       #print the name of each state and the year of the report
       print(f"{stateList[s-1]} 20{year}")
+      stateName = stateList[s-1]
       # Fetch the HTML content of the IC3.gov webpage
       url = f"https://www.ic3.gov/Media/PDF/AnnualReport/20{year}State/stats?s={s}"
       response = requests.get(url)
@@ -42,6 +43,8 @@ for year in range(17, 21):
       print("Crime Type by Victim Count")
       # Create DataFrame from crimeTypeByVictimLoss dictionary
       df = pd.DataFrame.from_dict(crimeTypeByVictimCount, orient='index', columns=['Victim Count'])
+      #add state column and state name to dataframe
+      df['State'] = stateName
       # Print the DataFrame
       print(df)
       print()
@@ -55,10 +58,12 @@ for year in range(17, 21):
       # Append the last two elements to the dictionary for social media and virtual currency
       crimeTypeByVictimLoss[crimeTypeList[35]] = data[0][3][0]
       crimeTypeByVictimLoss[crimeTypeList[36]] = data[0][3][1]
-      # Print the title of the table 
+      # Print the title of the table
       print("Crime Type by Victim Loss")
       # Create DataFrame from crimeTypeByVictimLoss dictionary
       df = pd.DataFrame.from_dict(crimeTypeByVictimLoss, orient='index', columns=['Loss Amount'])
+      #add state column and state name to dataframe
+      df['State'] = stateName
       # Print the DataFrame
       print(df)
       print()
@@ -72,10 +77,12 @@ for year in range(17, 21):
       # Append the last two elements to the dictionary for social media and virtual currency
       crimeTypeBySubjectCount[crimeTypeList[35]] = data[0][5][0]
       crimeTypeBySubjectCount[crimeTypeList[36]] = data[0][5][1]
-      # Print the title of the table 
+      # Print the title of the table
       print("Crime Type by Subject Count")
       # Create DataFrame from crimeTypeBySubjectCount dictionary
       df = pd.DataFrame.from_dict(crimeTypeBySubjectCount, orient='index', columns=['Subject Count'])
+      #add state column and state name to dataframe
+      df['State'] = stateName      
       # Print the DataFrame
       print(df)
       print()
@@ -93,6 +100,8 @@ for year in range(17, 21):
       print("Crime Type by Subject Loss")
       # Create DataFrame from crimeTypeBySubjectLoss dictionary
       df = pd.DataFrame.from_dict(crimeTypeBySubjectLoss, orient='index', columns=['Loss Amount'])
+      #add state column and state name to dataframe
+      df['State'] = stateName      
       # Print the DataFrame
       print(df)
       print()
@@ -107,6 +116,8 @@ for year in range(17, 21):
       print("Victims by Age Group:")
       # Create DataFrame from victimsByAgeGroup dictionary
       df = pd.DataFrame.from_dict(victimsByAgeGroup, orient='index', columns=['Count', 'Loss Amount'])
+      #add state column and state name to dataframe
+      df['State'] = stateName      
       # Print the DataFrame
       print(df)
       print()
