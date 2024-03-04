@@ -8,7 +8,7 @@ crimeTypeList = ["Advanced Fee", "BEC/EAC", "Charity", "Civil Matter", "Confiden
 ageRangeList = ["Under 20", "20 - 29", "30 - 39", "40 - 49", "50 - 59", "Over 60"]
 
 #there are 4 years of reports we want to gather from 2017 through 2021
-for year in range(17, 21):
+for year in range(17, 22):
 
   crimeTypeByVictimCount = {}
   crimeTypeByVictimLoss = {}
@@ -49,6 +49,8 @@ for year in range(17, 21):
       df['State'] = stateName
       #add year column and year to dataframe
       df['Year'] = date
+      #append the dataframe to a csv file
+      df.to_csv('./csv_files/crimeTypeByVictimCount.csv', mode='a', header=False)
       # Print the DataFrame
       print(df)
       print()
@@ -70,6 +72,8 @@ for year in range(17, 21):
       df['State'] = stateName
       #add year column and year to dataframe
       df['Year'] = date
+      #append the dataframe to a csv file
+      df.to_csv('./csv_files/crimeTypeByVictimLoss.csv', mode='a', header=False)
       # Print the DataFrame
       print(df)
       print()
@@ -90,7 +94,9 @@ for year in range(17, 21):
       #add state column and state name to dataframe
       df['State'] = stateName
       #add year column and year to dataframe
-      df['Year'] = date            
+      df['Year'] = date    
+      #append the dataframe to a csv file
+      df.to_csv('./csv_files/crimeTypeBySubjectCount.csv', mode='a', header=False)       
       # Print the DataFrame
       print(df)
       print()
@@ -111,7 +117,9 @@ for year in range(17, 21):
       #add state column and state name to dataframe
       df['State'] = stateName  
       #add year column and year to dataframe
-      df['Year'] = date    
+      df['Year'] = date
+      #append the dataframe to a csv file
+      df.to_csv('./csv_files/crimeTypeBySubjectLoss.csv', mode='a', header=False)    
       # Print the DataFrame
       print(df)
       print()
@@ -131,6 +139,8 @@ for year in range(17, 21):
       # Print the DataFrame
       #add year column and year to dataframe
       df['Year'] = date
+      #append the dataframe to a csv file
+      df.to_csv('./csv_files/victimsByAgeGroup.csv', mode='a', header=False)
       print(df)
       print()
 
