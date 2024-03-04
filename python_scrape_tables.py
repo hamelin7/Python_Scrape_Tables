@@ -15,12 +15,14 @@ for year in range(17, 21):
   crimeTypeBySubjectCount = {}
   crimeTypeBySubjectLoss = {}
   victimsByAgeGroup = {}
+  date = (f"20{year}")
 
 #there are 57 states and territories we want to gather data for
   for s in range(1, 58):
       #print the name of each state and the year of the report
       print(f"{stateList[s-1]} 20{year}")
       stateName = stateList[s-1]
+      
       # Fetch the HTML content of the IC3.gov webpage
       url = f"https://www.ic3.gov/Media/PDF/AnnualReport/20{year}State/stats?s={s}"
       response = requests.get(url)
@@ -45,6 +47,8 @@ for year in range(17, 21):
       df = pd.DataFrame.from_dict(crimeTypeByVictimCount, orient='index', columns=['Victim Count'])
       #add state column and state name to dataframe
       df['State'] = stateName
+      #add year column and year to dataframe
+      df['Year'] = date
       # Print the DataFrame
       print(df)
       print()
@@ -64,6 +68,8 @@ for year in range(17, 21):
       df = pd.DataFrame.from_dict(crimeTypeByVictimLoss, orient='index', columns=['Loss Amount'])
       #add state column and state name to dataframe
       df['State'] = stateName
+      #add year column and year to dataframe
+      df['Year'] = date
       # Print the DataFrame
       print(df)
       print()
@@ -82,7 +88,9 @@ for year in range(17, 21):
       # Create DataFrame from crimeTypeBySubjectCount dictionary
       df = pd.DataFrame.from_dict(crimeTypeBySubjectCount, orient='index', columns=['Subject Count'])
       #add state column and state name to dataframe
-      df['State'] = stateName      
+      df['State'] = stateName
+      #add year column and year to dataframe
+      df['Year'] = date            
       # Print the DataFrame
       print(df)
       print()
@@ -101,7 +109,9 @@ for year in range(17, 21):
       # Create DataFrame from crimeTypeBySubjectLoss dictionary
       df = pd.DataFrame.from_dict(crimeTypeBySubjectLoss, orient='index', columns=['Loss Amount'])
       #add state column and state name to dataframe
-      df['State'] = stateName      
+      df['State'] = stateName  
+      #add year column and year to dataframe
+      df['Year'] = date    
       # Print the DataFrame
       print(df)
       print()
@@ -119,6 +129,8 @@ for year in range(17, 21):
       #add state column and state name to dataframe
       df['State'] = stateName      
       # Print the DataFrame
+      #add year column and year to dataframe
+      df['Year'] = date
       print(df)
       print()
 
