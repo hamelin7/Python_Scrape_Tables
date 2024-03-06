@@ -51,9 +51,6 @@ for year in range(17, 22):
       df['Year'] = date
       #append the dataframe to a csv file
       df.to_csv('./csv_files/crimeTypeByVictimCount.csv', mode='a', header=False)
-      # Print the DataFrame
-      print(df)
-      print()
 
       # Iterate over the data and crimeTypeList
       for i, (sublist, crime_type) in enumerate(zip(data[0][2], crimeTypeList)):
@@ -74,9 +71,6 @@ for year in range(17, 22):
       df['Year'] = date
       #append the dataframe to a csv file
       df.to_csv('./csv_files/crimeTypeByVictimLoss.csv', mode='a', header=False)
-      # Print the DataFrame
-      print(df)
-      print()
 
       # Iterate over the data and crimeTypeList
       for i, (sublist, crime_type) in enumerate(zip(data[0][4], crimeTypeList)):
@@ -97,9 +91,6 @@ for year in range(17, 22):
       df['Year'] = date    
       #append the dataframe to a csv file
       df.to_csv('./csv_files/crimeTypeBySubjectCount.csv', mode='a', header=False)       
-      # Print the DataFrame
-      print(df)
-      print()
 
       # Iterate over the data and crimeTypeList
       for i, (sublist, crime_type) in enumerate(zip(data[0][6], crimeTypeList)):
@@ -120,9 +111,6 @@ for year in range(17, 22):
       df['Year'] = date
       #append the dataframe to a csv file
       df.to_csv('./csv_files/crimeTypeBySubjectLoss.csv', mode='a', header=False)    
-      # Print the DataFrame
-      print(df)
-      print()
 
       # Iterate through each dictionary in data[1] and pair values with age ranges
       for dictionary, age_range in zip(data[1], ageRangeList):
@@ -141,8 +129,6 @@ for year in range(17, 22):
       df['Year'] = date
       #append the dataframe to a csv file
       df.to_csv('./csv_files/victimsByAgeGroup.csv', mode='a', header=False)
-      print(df)
-      print()
 
   else:
       print("Failed to fetch the webpage")
