@@ -17,7 +17,7 @@ for year in range(17, 22):
   victimsByAgeGroup = {}
   date = (f"20{year}")
 
-#there are 57 states and territories we want to gather data for
+  #there are 57 states and territories we want to gather data for
   for s in range(1, 58):
       #print the name of each state and the year of the report
       print(f"{stateList[s-1]} 20{year}")
